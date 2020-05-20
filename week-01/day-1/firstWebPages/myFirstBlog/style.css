@@ -1,0 +1,49 @@
+body {
+  font-family: sans-serif;
+}
+header {
+  background: gray;
+  border: 1px solid black;
+  height: 50px;
+  font-size: 24px;
+  line-height: 50px;
+  padding-left: 20%;
+}
+main {
+  margin: 0 20%;
+}
+h1 {
+  font-size: 16px;
+}
+#newPosts {
+  display: flex;
+  flex-direction: column;
+}
+#title {
+  width: 200px;
+}
+.postBox {
+  height: 150px;
+}
+input[type="button"] {
+  width: 80px;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+#title {
+  margin-bottom: 10px;
+}
+article {
+  border: 1px solid black;
+  margin-bottom: 10px;
+}
+h2 {
+  margin: 3px;
+}
+p {
+  margin: 7px;
+}
+label {
+  font-weight: bold;
+}
