@@ -6,7 +6,7 @@ public class Swap {
         int b = 526;
 
         int c = a;
-        
+
         a = b;
         b = c;
 
