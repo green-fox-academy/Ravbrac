@@ -25,7 +25,7 @@ public class Cuboid {
         System.out.println( "Enter side c: ");
         c = objC.nextDouble();
 
-        System.out.println("Surface Area = " + ((2 * a *b) + (2 * a * c) + (2 *b * c)));
-        System.out.println("Volume = " + (a * b * c));
+        System.out.println("Surface Area = " + (int)((2 * a *b) + (2 * a * c) + (2 *b * c)));
+        System.out.println("Volume = " + (int)(a * b * c));
     }
 }
