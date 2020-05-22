@@ -6,21 +6,18 @@ public class PrintBigger {
     public static void main(String[] args) {
         // Write a program that asks for two numbers and prints the bigger one
 
-        double a;
-        double b;
-
-        Scanner inputA = new Scanner (System.in);
+        Scanner input = new Scanner (System.in);
         System.out.println("Enter the first number: ");
-        a = inputA.nextDouble();
-
-        Scanner inputB = new Scanner (System.in);
+        double a = input.nextDouble();
         System.out.println("Enter the second number: ");
-        b = inputB.nextDouble();
+        double b = input.nextDouble();
 
-        if (a >= b){
+        if (a > b) {
             System.out.println(a);
-        } else {
+        } else if (a < b) {
             System.out.println(b);
+        } else {
+            System.out.println("The numbers are equal!");
         }
     }
 }
