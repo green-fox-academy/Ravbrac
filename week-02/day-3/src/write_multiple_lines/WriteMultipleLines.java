@@ -36,7 +36,6 @@ public class WriteMultipleLines {
             content.add(word);
         }
         try {
-//            Path filePath = Paths.get(fileName);
             Files.write(fileName, content);
         } catch (IOException e) {
             System.exit(2);
