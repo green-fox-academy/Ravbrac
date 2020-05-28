@@ -14,8 +14,8 @@ public class FourRectangles {
         // avoid code duplication.
 
         Random random = new Random();
-        int counter = random.nextInt(996) + 4;
-
+        int counter = 4;
+        
         for (int i = 0; i < counter; i++) {
             int r = random.nextInt(256);
             int g = random.nextInt(256);
