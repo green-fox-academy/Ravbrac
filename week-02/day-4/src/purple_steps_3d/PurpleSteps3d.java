@@ -1,4 +1,4 @@
-package purple_steps;
+package purple_steps_3d;
 
 import javax.swing.*;
 
@@ -6,25 +6,35 @@ import java.awt.*;
 
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
-public class PurpleSteps {
+public class PurpleSteps3d {
     public static void mainDraw(Graphics graphics) {
         // Reproduce this:
-        // [https://github.com/green-fox-academy/teaching-materials/blob/master/workshop/drawing/assets/r3.png]
+        // [https://github.com/green-fox-academy/teaching-materials/blob/master/workshop/drawing/assets/r4.png]
 
-        int square = 19;
+        int square = 6;
         int size = 10;
         Color purple = new Color(174, 91, 226);
 
-        for (int i = size; i <= square * size; i+= size) {
+//        for (int i = 0; i < square; i++) {
+//            for (int j = size; j < square * size; j+= size) {
+//                graphics.setColor(Color.black);
+//                graphics.drawRect(i + j, i + j, size + j, size + j);
+//                graphics.setColor(purple);
+//                graphics.fillRect(i + j + 1,i + j + 1,size + j - 1,size + j - 1);
+//            }
+//        }
+
+
+        for (int i = size; i < square * size; i+= size) {
+            int init = 0;
+            for (int j = 0; j < i / size; j++) {
+                init += j * size;
+            }
             graphics.setColor(Color.black);
-            graphics.drawRect(i, i, size, size);
+            graphics.drawRect(size + init,size +  init, i, i);
             graphics.setColor(purple);
-            graphics.fillRect(i + 1,i + 1,size - 1,size - 1);
+            graphics.fillRect(size + init + 1,size + init + 1,i - 1,i - 1);
         }
-
-
-
-
 
     }
 
