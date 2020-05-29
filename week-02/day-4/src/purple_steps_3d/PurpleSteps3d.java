@@ -25,7 +25,7 @@ public class PurpleSteps3d {
 //        }
 
 
-        for (int i = size; i < square * size; i+= size) {
+        for (int i = size; i <= square * size; i+= size) {
             int init = 0;
             for (int j = 0; j < i / size; j++) {
                 init += j * size;
