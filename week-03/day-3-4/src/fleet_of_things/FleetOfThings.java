@@ -28,7 +28,7 @@ public class FleetOfThings {
 
         standUp.complete();
         lunch.complete();
-        
+
         System.out.println(fleet);
     }
 }
