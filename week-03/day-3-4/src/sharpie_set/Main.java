@@ -7,7 +7,7 @@ public class Main {
         SharpieSet set1 = new SharpieSet();
 
         System.out.println(set1.listSharpie.get(1).color);
-        
+
 
 
     }
