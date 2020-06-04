@@ -11,13 +11,13 @@ public class SharpieSet {
 //                    countUsable() -> sharpie is usable if it has ink in it
 //    removeTrash() -> removes all unusable sharpies
 
-    ArrayList<Sharpie> listSharpie;
+    public ArrayList<Sharpie> listSharpie;
 
     public SharpieSet(){
         this.listSharpie = new ArrayList<>();
-        listSharpie.add(new Sharpie("red", 10));
-        listSharpie.add(new Sharpie("green", 10));
-        listSharpie.add(new Sharpie("blue", 10));
+        this.listSharpie.add(new Sharpie("red", 10));
+        this.listSharpie.add(new Sharpie("green", 10));
+        this.listSharpie.add(new Sharpie("blue", 10));
     }
 
     public boolean countUsable(){
