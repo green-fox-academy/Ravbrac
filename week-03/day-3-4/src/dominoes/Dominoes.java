@@ -1,7 +1,11 @@
 package dominoes;
 
+import org.junit.jupiter.api.MethodOrderer;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
+
 
 public class Dominoes {
     public static void main(String[] args) {
@@ -13,17 +17,15 @@ public class Dominoes {
         System.out.println(dominoes);
 
         List<Domino> snakeDominoes = new ArrayList<>();
+        Random random = new Random();
+        snakeDominoes.add(dominoes.get(random.nextInt(5)));
+
         for (int i = 0; i < dominoes.size(); i++) {
-            for (int j = 0; j < snakeDominoes.size(); j++) {
-                if (dominoes.get(i).getLeftSide() != snakeDominoes.get(j).getLeftSide()){
-                    snakeDominoes.add(dominoes.get(i));
-                }
-            }
 
-            for (int j = 1; j < dominoes.size() - i; j++) {
+            for (int j = 0; j < dominoes.size(); j++) {
 
-                if (dominoes.get(i).getRightSide() == dominoes.get(j).getLeftSide()){
-
+                if ((snakeDominoes.get(i).getRightSide() == dominoes.get(j).getLeftSide()) && (snakeDominoes.size() <
+                        dominoes.size())){
                     snakeDominoes.add(dominoes.get(j));
                 }
 
