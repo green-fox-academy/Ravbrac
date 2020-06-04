@@ -1,4 +1,4 @@
-package sharpie;
+package sharpie_set;
 
 public class Sharpie {
 //    Create Sharpie class
@@ -13,12 +13,12 @@ public class Sharpie {
     public double width;
     public static double inkAmount = 100;
 
-    public Sharpie(String color, float width){
+    public Sharpie(String color, double width){
         this.color = color;
         this.width = width;
     }
 
-    public static void use(float amount){
+    public static void use(double amount){
         inkAmount-= amount;
     }
 }
