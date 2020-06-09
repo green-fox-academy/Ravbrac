@@ -14,8 +14,8 @@ public class Dominoes {
         // eg: [2, 4], [4, 3], [3, 5] ...
 
         System.out.println(dominoes);
-        
-        Arrays.sort(dominoes);
+
+//        Arrays.sort(dominoes);
         System.out.println(Arrays.asList(dominoes));
 
         List<Domino> snakeDominoes = new ArrayList<>();
