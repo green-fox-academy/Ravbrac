@@ -22,4 +22,16 @@ public class Armada {
       ships.add(ship);
     }
   }
+
+  public void war(Armada otherArmada) {
+    int largerArmadaSize;
+    if (this.ships.size() > otherArmada.ships.size()) {
+      largerArmadaSize = this.ships.size();
+    } else {
+      largerArmadaSize = otherArmada.ships.size();
+    }
+    for (int i = 0; i < largerArmadaSize; i++) {
+      this.ships.get(i).battle(otherArmada.ships.get(i));
+    }
+  }
 }
