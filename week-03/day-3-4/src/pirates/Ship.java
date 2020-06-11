@@ -51,7 +51,7 @@ public class Ship {
         Random random = new Random();
         pirates.add(captain);
         captain.parrot = true;
-        int crew = random.nextInt(maxCrew);
+        int crew = random.nextInt(maxCrew + 1);
 
         for (int i = 0; i < crew; i++) {
             Pirate pirate = new Pirate();

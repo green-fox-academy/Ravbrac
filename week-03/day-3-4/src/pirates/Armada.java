@@ -1,10 +1,11 @@
 package pirates;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class Armada {
-  ArrayList<Ship> ships;
+  List<Ship> ships;
   String armadaName;
 
   public Armada(String armadaName) {
@@ -14,7 +15,7 @@ public class Armada {
 
   public void fillArmada(int maxShips, int maxCrew) {
     Random random = new Random();
-    int numberOfShips = random.nextInt(maxShips);
+    int numberOfShips = random.nextInt(maxShips + 1);
 
     for (int i = 0; i < numberOfShips; i++) {
       Ship ship = new Ship();
@@ -23,15 +24,19 @@ public class Armada {
     }
   }
 
-  public void war(Armada otherArmada) {
-    int largerArmadaSize;
-    if (this.ships.size() > otherArmada.ships.size()) {
-      largerArmadaSize = this.ships.size();
+  public boolean war(Armada otherArmada) {
+    if (this.ships.size() == 0) {
+      return false;
+    } else if (otherArmada.ships.size() == 0) {
+      return true;
+    }else if (this.ships.get(0).battle(otherArmada.ships.get(0))) {
+      otherArmada.ships.remove(0);
+      this.war(otherArmada);
     } else {
-      largerArmadaSize = otherArmada.ships.size();
+      this.ships.remove(0);
+      otherArmada.war(this);
     }
-    for (int i = 0; i < largerArmadaSize; i++) {
-      this.ships.get(i).battle(otherArmada.ships.get(i));
-    }
+      return this.war(otherArmada);
   }
+
 }
