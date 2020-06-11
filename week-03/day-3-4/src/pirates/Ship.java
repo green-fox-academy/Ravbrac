@@ -29,13 +29,19 @@ public class Ship {
         this.captain = new Pirate();
     }
 
+    public Ship() {
+        this.pirates = new ArrayList<>();
+        this.shipName = "Generic pirate ship";
+        this.captain = new Pirate();
+    }
+
     public void shipStatus() {
         System.out.println();
         System.out.println("       |X|"       + "      " + shipName);
         System.out.println("       |"         );
         System.out.println("       |D"        );
         System.out.println("  |D   |D   |D"   + "  Rum consumed by the captain: " + captain.intoxication);
-        System.out.println("  |D   |D   |D"   + "  Captain's state: " + status());
+        System.out.println("  |D   |D   |D"   + "  Captain's state: " + statusCaptain());
         System.out.println("__|____|____|__"  + "  Crew members alive: " + crewAlive());
         System.out.println("|............./"  );
         System.out.println("|____________/"   );
@@ -53,7 +59,7 @@ public class Ship {
         }
     }
 
-    public String status() {
+    public String statusCaptain() {
         if (captain.dead){
             return "The captain is dead!";
         }else if (captain.passedOut){
