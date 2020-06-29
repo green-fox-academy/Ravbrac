@@ -14,7 +14,7 @@ public class Exercise8 {
 
     charList.stream()
         .forEach(c -> System.out.print(c.toString()));
-    
+
   }
 
 }
