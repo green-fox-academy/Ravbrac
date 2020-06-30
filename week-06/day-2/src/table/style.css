@@ -1,0 +1,51 @@
+body{
+  background-color: rgb(108, 151, 231);
+}
+
+table, th, td{
+  border: 1px solid gray;
+  border-spacing: 0px;
+  
+}
+
+
+table{
+  width: 500px;
+  margin: 50px;
+  border-radius: 5px;
+  font-family: sans-serif;
+}
+
+
+
+
+
+th, td{
+  height: 50px;
+  text-indent: 10px;
+  
+}
+
+thead{
+  border-radius: 5px;
+}
+
+th{
+  color: rgb(187, 184, 184);
+  background-color: black;
+  border-bottom: 3px solid gray;
+  text-align: left;
+  font-weight: normal;
+}
+
+td{
+  color: rgb(90, 89, 89);
+}
+
+tr:nth-child(even){
+  background-color: white;
+}
+
+tr:nth-child(odd){
+  background-color: lightgray;
+}
