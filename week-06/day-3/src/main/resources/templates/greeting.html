@@ -6,6 +6,7 @@
 </head>
 <body>
 <!--/*@thymesVar id="name" type="java"*/-->
-<p th:text="'Hello, ' + ${name} + '!'" />
+<!--/*@thymesVar id="counter" type="java"*/-->
+<p th:text="'Hello, ' + ${name} + '!' + ' This site was loaded ' + ${counter} + ' time(s) since last server start.'" />
 </body>
 </html>
