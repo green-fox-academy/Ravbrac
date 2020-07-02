@@ -1,6 +1,9 @@
 package com.greenfox.thymeleafmodelsviews.controller;
 
 import com.greenfox.thymeleafmodelsviews.model.BankAccount;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,5 +28,20 @@ public class AccountController {
     model.addAttribute("htmlString", htmlString);
 
     return "htmlcept";
+  }
+
+  @GetMapping("/multiple")
+  public String multipleAcc(Model model) {
+    List<BankAccount> accounts = new ArrayList<>(Arrays.asList(
+        new BankAccount("Timon", 500, "meerkat"),
+    new BankAccount("Pumbaa", 700, "warthog"),
+    new BankAccount("Rafiki", 100, "mandrill"),
+    new BankAccount("Mufasa", 5000, "lion"),
+    new BankAccount("Nala", 3000, "lion")
+    ));
+
+    model.addAttribute("accounts", accounts);
+
+    return "multiple";
   }
 }
