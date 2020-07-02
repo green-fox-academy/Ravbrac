@@ -20,13 +20,17 @@
         <td>
             Animal Type
         </td>
+        <td>
+            Royalty Status
+        </td>
 
     </thead>
-    <tr th:each="account: ${accounts}">
+    <tr th:each="account: ${accounts}" th:attr="class=${account.getRoyalStyleClass()}">
         <td th:text="${accountStat.index}"></td>
         <td th:text="${account.name}"></td>
         <td th:text="${account.balance} + ' Zebra'"></td>
         <td th:text="${account.animalType}"></td>
+        <td th:text="${account.isKingToString()}"></td>
     </tr>
 </table>
 </body>

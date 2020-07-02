@@ -6,12 +6,22 @@ public class BankAccount {
   private String name;
   private String balance;
   private String animalType;
+  private boolean isKing;
 
   public BankAccount(String name, double balance, String animalType) {
     DecimalFormat df2 = new DecimalFormat("#.00");
     this.name = name;
     this.balance = df2.format(balance);
     this.animalType = animalType;
+    this.isKing = false;
+  }
+
+  public BankAccount(String name, double balance, String animalType, boolean isKing) {
+    DecimalFormat df2 = new DecimalFormat("#.00");
+    this.name = name;
+    this.balance = df2.format(balance);
+    this.animalType = animalType;
+    this.isKing = isKing;
   }
 
   public String getName() {
@@ -37,4 +47,29 @@ public class BankAccount {
   public void setAnimalType(String animalType) {
     this.animalType = animalType;
   }
+
+  public boolean isKing() {
+    return isKing;
+  }
+
+  public void setKing(boolean king) {
+    isKing = king;
+  }
+
+  public String isKingToString() {
+    if (this.isKing) {
+      return "I am a King";
+    } else {
+      return "I am Not a King";
+    }
+  }
+
+  public String getRoyalStyleClass() {
+    if (this.isKing) {
+      return "king";
+    }else {
+      return "";
+    }
+  }
+
 }

@@ -36,7 +36,7 @@ public class AccountController {
         new BankAccount("Timon", 500, "meerkat"),
     new BankAccount("Pumbaa", 700, "warthog"),
     new BankAccount("Rafiki", 100, "mandrill"),
-    new BankAccount("Mufasa", 5000, "lion"),
+    new BankAccount("Mufasa", 5000, "lion", true),
     new BankAccount("Nala", 3000, "lion")
     ));
 

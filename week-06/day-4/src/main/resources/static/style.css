@@ -2,3 +2,9 @@ table, td{
     border: 1px solid black;
     text-align: center;
 }
+
+.king{
+    background-color: darkgoldenrod;
+    font-weight: bold;
+    color: silver;
+}
