@@ -16,6 +16,14 @@ public class AccountController {
     model.addAttribute("account", account);
 
     return "show";
+  }
 
+  @GetMapping("/htmlcept")
+  public String htmlceptioner(Model model) {
+    String htmlString = "This is an <em>HTML</em> text. <b>Enjoy yourself!</b>";
+
+    model.addAttribute("htmlString", htmlString);
+
+    return "htmlcept";
   }
 }
