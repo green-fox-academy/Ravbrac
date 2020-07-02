@@ -1,13 +1,16 @@
 package com.greenfox.thymeleafmodelsviews.model;
 
+import java.text.DecimalFormat;
+
 public class BankAccount {
   private String name;
-  private int balance;
+  private String balance;
   private String animalType;
 
-  public BankAccount(String name, int balance, String animalType) {
+  public BankAccount(String name, double balance, String animalType) {
+    DecimalFormat df2 = new DecimalFormat("#.00");
     this.name = name;
-    this.balance = balance;
+    this.balance = df2.format(balance);
     this.animalType = animalType;
   }
 
@@ -19,11 +22,11 @@ public class BankAccount {
     this.name = name;
   }
 
-  public int getBalance() {
+  public String getBalance() {
     return balance;
   }
 
-  public void setBalance(int balance) {
+  public void setBalance(String balance) {
     this.balance = balance;
   }
 
