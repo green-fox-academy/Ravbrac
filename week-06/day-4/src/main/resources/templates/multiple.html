@@ -6,35 +6,49 @@
     <meta charset="utf-8" />
 </head>
 <body>
-<table>
-    <thead>
-        <td>
-            Index
-        </td>
-        <td>
-           Name
-        </td>
-        <td>
-            Balance
-        </td>
-        <td>
-            Animal Type
-        </td>
-        <td>
-            Royalty Status
-        </td>
-        <td>
-            Role
-        </td>
-    </thead>
-    <tr th:each="account: ${accounts}" th:attr="class=${account.getRoyalStyleClass()}">
-        <td th:text="${accountStat.index}"></td>
-        <td th:text="${account.name}"></td>
-        <td th:text="${account.balance} + ' Zebra'"></td>
-        <td th:text="${account.animalType}"></td>
-        <td th:text="${account.isKingToString()}"></td>
-        <td th:text="'I am a ' + ${account.isGoodToString()} + '!'"></td>
-    </tr>
-</table>
+    <table>
+        <thead>
+            <td>
+                Index
+            </td>
+            <td>
+               Name
+            </td>
+            <td>
+                Balance
+            </td>
+            <td>
+                Animal Type
+            </td>
+            <td>
+                Royalty Status
+            </td>
+            <td>
+                Role
+            </td>
+        </thead>
+        <tr th:each="account: ${accounts}" th:attr="class=${account.getRoyalStyleClass()}">
+            <td th:text="${accountStat.index}"></td>
+            <td th:text="${account.name}"></td>
+            <td th:text="${account.balance} + ' Zebra'"></td>
+            <td th:text="${account.animalType}"></td>
+            <td th:text="${account.isKingToString()}"></td>
+            <td th:text="'I am a ' + ${account.isGoodToString()} + '!'"></td>
+        </tr>
+    </table>
+
+    <br>
+
+    <h2>Raise the Balance!</h2>
+
+    <form th:action="'/increment-balance?name=' + account.name" method="post">
+        <label for="name">Account Holder's Name</label>
+        <input type="text" id="name" name="name">
+
+        <br>
+
+        <button type="submit">Raise!</button>
+    </form>
+
 </body>
 </html>
