@@ -3,6 +3,20 @@ table, td{
     text-align: center;
 }
 
+table{
+    background-color: burlywood;
+}
+
+thead td{
+    background-color: firebrick;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.nonKing{
+    background-color: linen;
+}
+
 .king{
     background-color: darkgoldenrod;
     font-weight: bold;

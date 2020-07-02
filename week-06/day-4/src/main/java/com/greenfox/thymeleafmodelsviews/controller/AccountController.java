@@ -34,10 +34,11 @@ public class AccountController {
   public String multipleAcc(Model model) {
     List<BankAccount> accounts = new ArrayList<>(Arrays.asList(
         new BankAccount("Timon", 500, "meerkat"),
-    new BankAccount("Pumbaa", 700, "warthog"),
-    new BankAccount("Rafiki", 100, "mandrill"),
-    new BankAccount("Mufasa", 5000, "lion", true),
-    new BankAccount("Nala", 3000, "lion")
+        new BankAccount("Pumbaa", 700, "warthog"),
+        new BankAccount("Rafiki", 100, "mandrill"),
+        new BankAccount("Mufasa", 5000, "lion", true),
+        new BankAccount("Zordon", 1000, "lion", false, false),
+        new BankAccount("Nala", 3000, "lion")
     ));
 
     model.addAttribute("accounts", accounts);

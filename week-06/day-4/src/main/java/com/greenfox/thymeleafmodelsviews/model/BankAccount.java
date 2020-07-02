@@ -7,6 +7,7 @@ public class BankAccount {
   private String balance;
   private String animalType;
   private boolean isKing;
+  private boolean isGood;
 
   public BankAccount(String name, double balance, String animalType) {
     DecimalFormat df2 = new DecimalFormat("#.00");
@@ -14,6 +15,7 @@ public class BankAccount {
     this.balance = df2.format(balance);
     this.animalType = animalType;
     this.isKing = false;
+    this.isGood = true;
   }
 
   public BankAccount(String name, double balance, String animalType, boolean isKing) {
@@ -22,6 +24,17 @@ public class BankAccount {
     this.balance = df2.format(balance);
     this.animalType = animalType;
     this.isKing = isKing;
+    this.isGood = true;
+  }
+
+  public BankAccount(String name, double balance, String animalType, boolean isKing,
+                     boolean isGood) {
+    DecimalFormat df2 = new DecimalFormat("#.00");
+    this.name = name;
+    this.balance = df2.format(balance);
+    this.animalType = animalType;
+    this.isKing = isKing;
+    this.isGood = isGood;
   }
 
   public String getName() {
@@ -68,8 +81,23 @@ public class BankAccount {
     if (this.isKing) {
       return "king";
     }else {
-      return "";
+      return "nonKing";
     }
   }
 
+  public boolean isGood() {
+    return isGood;
+  }
+
+  public void setGood(boolean good) {
+    isGood = good;
+  }
+
+  public String isGoodToString() {
+    if (this.isGood) {
+      return "Good One";
+    }else {
+      return "Bad Guy";
+    }
+  }
 }

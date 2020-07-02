@@ -23,7 +23,9 @@
         <td>
             Royalty Status
         </td>
-
+        <td>
+            Role
+        </td>
     </thead>
     <tr th:each="account: ${accounts}" th:attr="class=${account.getRoyalStyleClass()}">
         <td th:text="${accountStat.index}"></td>
@@ -31,6 +33,7 @@
         <td th:text="${account.balance} + ' Zebra'"></td>
         <td th:text="${account.animalType}"></td>
         <td th:text="${account.isKingToString()}"></td>
+        <td th:text="'I am a ' + ${account.isGoodToString()} + '!'"></td>
     </tr>
 </table>
 </body>
