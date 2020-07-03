@@ -4,7 +4,7 @@ import java.text.DecimalFormat;
 
 public class BankAccount {
   private String name;
-  private String balance;
+  private double balance;
   private String animalType;
   private boolean isKing;
   private boolean isGood;
@@ -12,7 +12,7 @@ public class BankAccount {
   public BankAccount(String name, double balance, String animalType) {
     DecimalFormat df2 = new DecimalFormat("#.00");
     this.name = name;
-    this.balance = df2.format(balance);
+    this.balance = Double.parseDouble(df2.format(balance));
     this.animalType = animalType;
     this.isKing = false;
     this.isGood = true;
@@ -21,7 +21,7 @@ public class BankAccount {
   public BankAccount(String name, double balance, String animalType, boolean isKing) {
     DecimalFormat df2 = new DecimalFormat("#.00");
     this.name = name;
-    this.balance = df2.format(balance);
+    this.balance = Double.parseDouble(df2.format(balance));
     this.animalType = animalType;
     this.isKing = isKing;
     this.isGood = true;
@@ -31,7 +31,7 @@ public class BankAccount {
                      boolean isGood) {
     DecimalFormat df2 = new DecimalFormat("#.00");
     this.name = name;
-    this.balance = df2.format(balance);
+    this.balance = Double.parseDouble(df2.format(balance));
     this.animalType = animalType;
     this.isKing = isKing;
     this.isGood = isGood;
@@ -45,11 +45,11 @@ public class BankAccount {
     this.name = name;
   }
 
-  public String getBalance() {
+  public double getBalance() {
     return balance;
   }
 
-  public void setBalance(String balance) {
+  public void setBalance(double balance) {
     this.balance = balance;
   }
 

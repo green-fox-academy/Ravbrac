@@ -41,7 +41,7 @@
 
     <h2>Raise the Balance!</h2>
 
-    <form th:action="'/increment-balance?name=' + account.name" method="post">
+    <form action="/increment-balance" method="post">
         <label for="name">Account Holder's Name</label>
         <input type="text" id="name" name="name">
 
