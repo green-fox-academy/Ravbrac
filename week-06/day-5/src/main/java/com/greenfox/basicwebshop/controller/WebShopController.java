@@ -3,6 +3,7 @@ package com.greenfox.basicwebshop.controller;
 import com.greenfox.basicwebshop.model.ShopItem;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 import org.springframework.stereotype.Controller;
@@ -43,6 +44,19 @@ public class WebShopController {
 
 
     model.addAttribute("items", itemsAvailable);
+    return "webshop";
+  }
+
+  @GetMapping("/cheapest-first")
+  public String cheapestFirst(Model model) {
+
+    ArrayList<ShopItem> itemPriceDescending = items.stream()
+        .sorted(Comparator.comparing(ShopItem::getPrice))
+        .collect(Collectors.toCollection(ArrayList::new));
+
+
+
+    model.addAttribute("items", itemPriceDescending);
     return "webshop";
   }
 }
