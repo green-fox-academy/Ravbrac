@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
+import java.util.OptionalDouble;
 import java.util.stream.Collectors;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -70,6 +71,29 @@ public class WebShopController {
 
 
     model.addAttribute("items", nikeItems);
+    return "webshop";
+  }
+
+  @GetMapping("/average-stock")
+  public String averageStock(Model model) {
+
+    OptionalDouble optionalAverage =items.stream()
+        .mapToInt(ShopItem::getQuantityOfStock)
+        .average();
+    if (optionalAverage.isPresent()) {
+      double average = optionalAverage.getAsDouble();
+      model.addAttribute("average", average);
+      return "average-stock";
+    } else {
+      return "redirect:/webshop";
+    }
+
+
+
+  }
+
+  @GetMapping("/most-expensive")
+  public String mostExpensive() {
     return "webshop";
   }
 }

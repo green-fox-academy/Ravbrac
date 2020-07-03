@@ -9,15 +9,14 @@ header{
     width: auto;
 }
 
+a{
+    text-decoration: none;
+}
+
 header > a{
     font-size: 48px;
     font-weight: bold;
     color: skyblue;
-    text-decoration: none;
-}
-
-h1{
-    margin-bottom: 1px;
 }
 
 nav{
@@ -32,7 +31,7 @@ nav > a{
     border-radius: 5px;
     padding: 5px;
     color: white;
-
+    margin-bottom: 1px;
 }
 
 
@@ -76,4 +75,9 @@ td:not(.descriptionHead){
 
 table{
     width: 100%;
+}
+
+.average{
+    font-weight: bold;
+    font-size: 48px;
 }
