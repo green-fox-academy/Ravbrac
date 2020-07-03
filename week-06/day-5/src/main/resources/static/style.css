@@ -1,0 +1,22 @@
+html{
+    font-family: sans-serif;
+}
+
+header{
+    border-bottom: 1.5px solid skyblue;
+    color: skyblue;
+    margin-bottom: 30px;
+    width: 843px;
+}
+
+h1{
+    margin-bottom: 1px;
+}
+
+nav > a{
+    background-color: orangered;
+    border-radius: 5px;
+    padding: 5px;
+    color: white;
+    margin-right: 5px;
+}
