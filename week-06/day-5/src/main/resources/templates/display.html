@@ -19,7 +19,8 @@
     <a th:href="'/most-expensive'">MOST EXPENSIVE AVAILABLE</a>
 </nav>
 
-<p th:text="'Average Stock: ' + ${average}" class="average"></p>
+<p th:text="${displayText} + ${displayData}" class="average"></p>
+
 
 </body>
 </html>

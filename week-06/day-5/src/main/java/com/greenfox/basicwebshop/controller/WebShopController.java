@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 import java.util.OptionalDouble;
 import java.util.stream.Collectors;
 import org.springframework.stereotype.Controller;
@@ -21,6 +22,8 @@ public class WebShopController {
       new ShopItem("Wokin", "Chicken with fried rice and WOKIN sauce", 119.0, 100),
       new ShopItem("T-shirt", "Blue with a corgi on a bike", 300.0, 1)
       ));
+
+  String[] displayText = {"Average stock: ", "Most expensive item available: "};
 
 //  @GetMapping("/webshop")
 //  @ResponseBody
@@ -50,7 +53,6 @@ public class WebShopController {
 
   @GetMapping("/cheapest-first")
   public String cheapestFirst(Model model) {
-
     ArrayList<ShopItem> itemPriceDescending = items.stream()
         .sorted(Comparator.comparing(ShopItem::getPrice))
         .collect(Collectors.toCollection(ArrayList::new));
@@ -81,9 +83,10 @@ public class WebShopController {
         .mapToInt(ShopItem::getQuantityOfStock)
         .average();
     if (optionalAverage.isPresent()) {
+      model.addAttribute("displayText", displayText[0]);
       double average = optionalAverage.getAsDouble();
-      model.addAttribute("average", average);
-      return "average-stock";
+      model.addAttribute("displayData", average);
+      return "display";
     } else {
       return "redirect:/webshop";
     }
@@ -93,7 +96,17 @@ public class WebShopController {
   }
 
   @GetMapping("/most-expensive")
-  public String mostExpensive() {
-    return "webshop";
+  public String mostExpensive( Model model) {
+    Optional<ShopItem> optionalItem = items.stream()
+        .max(Comparator.comparing(ShopItem::getPrice));
+
+    if (optionalItem.isPresent()) {
+      model.addAttribute("displayText", displayText[1]);
+      ShopItem mostExpensiveItem = optionalItem.get();
+      model.addAttribute("displayData", mostExpensiveItem.getName());
+      return "display";
+    } else {
+      return "redirect:/webshop";
+    }
   }
 }
