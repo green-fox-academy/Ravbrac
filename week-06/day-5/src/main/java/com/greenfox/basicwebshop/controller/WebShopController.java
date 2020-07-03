@@ -59,4 +59,17 @@ public class WebShopController {
     model.addAttribute("items", itemPriceDescending);
     return "webshop";
   }
+
+  @GetMapping("/contains-nike")
+  public String containsNike(Model model) {
+
+    ArrayList<ShopItem> nikeItems = items.stream()
+        .filter(i -> i.getName().toLowerCase().contains("nike") || i.getDescription().toLowerCase().contains("nike"))
+        .collect(Collectors.toCollection(ArrayList::new));
+
+
+
+    model.addAttribute("items", nikeItems);
+    return "webshop";
+  }
 }

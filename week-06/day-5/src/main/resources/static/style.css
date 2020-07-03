@@ -5,9 +5,15 @@ html{
 
 header{
     border-bottom: 1.5px solid skyblue;
-    color: skyblue;
     margin-bottom: 30px;
     width: auto;
+}
+
+header > a{
+    font-size: 48px;
+    font-weight: bold;
+    color: skyblue;
+    text-decoration: none;
 }
 
 h1{
