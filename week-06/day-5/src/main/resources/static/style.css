@@ -56,12 +56,12 @@ td:not(.nameCol){
     font-size: 24px;
 }
 
-td:not(.descriptionHead, .descriptionCol){
+td:not(.descriptionHead){
     width: 15%;
 }
 
-.descriptionHead, .descriptionCol{
-    width: 55%;
+.descriptionHead{
+    width: 50%;
 }
 
 .descriptionCol{

@@ -4,6 +4,7 @@ import com.greenfox.basicwebshop.model.ShopItem;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,6 +30,19 @@ public class WebShopController {
   public String webshop(Model model) {
     model.addAttribute("items", items);
 
+    return "webshop";
+  }
+
+  @GetMapping("/only-available")
+  public String onlyAvailable(Model model) {
+
+    ArrayList<ShopItem> itemsAvailable = items.stream()
+        .filter(i -> i.getQuantityOfStock() > 0)
+        .collect(Collectors.toCollection(ArrayList::new));
+
+
+
+    model.addAttribute("items", itemsAvailable);
     return "webshop";
   }
 }

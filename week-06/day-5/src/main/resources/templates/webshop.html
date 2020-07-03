@@ -12,7 +12,7 @@
 
 
     <nav>
-        <a>ONLY AVAILABLE</a>
+        <a th:href="'/only-available'">ONLY AVAILABLE</a>
         <a>CHEAPEST FIRST</a>
         <a>CONTAINS NIKE</a>
         <a>AVERAGE STOCK</a>
@@ -29,7 +29,7 @@
         <tr th:each="item : ${items}">
             <td th:text="${item.name}" class="nameCol"></td>
             <td th:text="${item.description }" class="descriptionCol"></td>
-            <td th:text="${item.price} + 'Kč'" class="amount"></td>
+            <td th:text="${item.price} + ' Kč'" class="amount"></td>
             <td th:text="${item.quantityOfStock}" class="amount"></td>
         </tr>
     </table>
