@@ -85,7 +85,6 @@ table{
 .searchField{
     width: 100%;
     position: relative;
-
 }
 
 label{
@@ -96,23 +95,27 @@ input{
     border-color: orangered;
     border-radius: 5px;
     border-style: solid;
-    width: 85%;
+    width: 86%;
     box-sizing: border-box;
     font-size: 20px;
     text-indent: 5px;
-    margin-bottom: 20px;
+
 
 }
 
 button{
     width: 13%;
-    margin-left: 5px;
     background-color: orangered;
     color: #ffffff;
     border-radius: 5px;
-    border: none;
+    border: 2px solid orangered;
+    padding: 2px;
+    position: absolute;
+    right: 0;
+    font-size: 20px;
 }
 
 input, button{
     height: 50px;
+    margin-bottom: 20px;
 }
