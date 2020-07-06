@@ -11,6 +11,14 @@
         <a th:href="'/more-filters'" class="more">More >></a>
     </header>
 
+    <nav>
+        <a th:href="'/only-available'">ONLY AVAILABLE</a>
+        <a th:href="'/cheapest-first'">CHEAPEST FIRST</a>
+        <a th:href="'/contains-nike'">CONTAINS NIKE</a>
+        <a th:href="'/average-stock'">AVERAGE STOCK</a>
+        <a th:href="'/most-expensive'">MOST EXPENSIVE AVAILABLE</a>
+    </nav>
+
     <form action="/search" method="post">
         <label for="searchBar">Search for:</label>
         <div class="searchField">
@@ -19,14 +27,6 @@
         </div>
 
     </form>
-
-    <nav>
-        <a th:href="'/only-available'">ONLY AVAILABLE</a>
-        <a th:href="'/cheapest-first'">CHEAPEST FIRST</a>
-        <a th:href="'/contains-nike'">CONTAINS NIKE</a>
-        <a th:href="'/average-stock'">AVERAGE STOCK</a>
-        <a th:href="'/most-expensive'">MOST EXPENSIVE AVAILABLE</a>
-    </nav>
 
     <p th:text="${displayText} + ${displayData}" class="average"></p>
 

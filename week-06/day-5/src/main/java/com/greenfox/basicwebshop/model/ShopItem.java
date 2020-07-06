@@ -56,4 +56,12 @@ public class ShopItem {
       return "Beverages and Snacks";
     }
   }
+
+  public String getType() {
+    return type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
 }

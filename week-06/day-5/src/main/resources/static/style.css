@@ -52,6 +52,7 @@ td{
     word-wrap: break-word;
     height: 100px;
     font-size: 20px;
+    width: auto;
 }
 
 td:not(.nameCol){
@@ -67,16 +68,20 @@ td:not(.nameCol){
     font-size: 24px;
 }
 
-td:not(.descriptionHead){
-    width: 15%;
-}
+/*td:not(.descriptionHead){*/
+/*    width: 15%;*/
+/*}*/
 
-.descriptionHead{
-    width: 50%;
-}
+/*.descriptionHead{*/
+/*    width: 50%;*/
+/*}*/
 
-.descriptionCol{
-    font-size: 18px;
+/*.descriptionCol{*/
+/*    font-size: 18px;*/
+/*}*/
+
+td{
+
 }
 
 table{

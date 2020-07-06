@@ -39,6 +39,7 @@
     </thead>
     <tr th:each="item : ${items}">
         <td th:text="${item.name}" class="nameCol"></td>
+        <td th:text="${item.type}" class="typeCol"></td>
         <td th:text="${item.description }" class="descriptionCol"></td>
         <td th:text="${item.price} + ' Kč'" class="amount"></td>
         <td th:text="${item.quantityOfStock}" class="amount"></td>

@@ -19,8 +19,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class WebShopController {
   List<ShopItem> items = new ArrayList<>(Arrays.asList(
-      new ShopItem("Running Shoes", ItemType.CLOTHES, "Nike running shoes for everyday sport", 1000.0, 5),
-      new ShopItem("Printer", ItemType.ELECTRONICS, "Some HP printer that will print pages", 3000.0, 2),
+      new ShopItem("Running Shoes", ItemType.CLOTHES, "Nike running shoes for everyday sport",
+          1000.0, 5),
+      new ShopItem("Printer", ItemType.ELECTRONICS, "Some HP printer that will print pages", 3000.0,
+          2),
       new ShopItem("Coca Cola", ItemType.SNACKS, "0.5l standard coke", 25.0, 0),
       new ShopItem("Wokin", ItemType.SNACKS, "Chicken with fried rice and WOKIN sauce", 119.0, 100),
       new ShopItem("T-shirt", ItemType.CLOTHES, "Blue with a corgi on a bike", 300.0, 1)
@@ -28,13 +30,7 @@ public class WebShopController {
 
   String[] displayText = {"Average stock: ", "Most expensive item available: "};
 
-  ArrayList<ShopItem> searchedItems= new ArrayList<>();
-
-//  @GetMapping("/webshop")
-//  @ResponseBody
-//  public String helloWorld() {
-//    return "Hello World";
-//  }
+  ArrayList<ShopItem> searchedItems = new ArrayList<>();
 
   @GetMapping("/webshop")
   public String webshop(Model model) {
@@ -130,7 +126,7 @@ public class WebShopController {
 
   @GetMapping("/more-filters")
   public String moreFilters(Model model) {
-      model.addAttribute("items", items);
+    model.addAttribute("items", items);
 
     return "more-filters";
   }
