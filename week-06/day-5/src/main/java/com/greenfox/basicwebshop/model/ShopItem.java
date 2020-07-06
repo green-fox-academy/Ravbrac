@@ -1,11 +1,11 @@
 package com.greenfox.basicwebshop.model;
 
 public class ShopItem {
-  String name;
-  String type;
-  String description;
-  double price;
-  int quantityOfStock;
+  private String name;
+  private String type;
+  private String description;
+  private double price;
+  private int quantityOfStock;
 
   public ShopItem(String name, ItemType itemType, String description, double price, int quantityOfStock) {
     this.name = name;
