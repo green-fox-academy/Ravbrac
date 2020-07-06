@@ -81,3 +81,38 @@ table{
     font-weight: bold;
     font-size: 48px;
 }
+
+.searchField{
+    width: 100%;
+    position: relative;
+
+}
+
+label{
+    color: #ce6640;
+}
+
+input{
+    border-color: orangered;
+    border-radius: 5px;
+    border-style: solid;
+    width: 85%;
+    box-sizing: border-box;
+    font-size: 20px;
+    text-indent: 5px;
+    margin-bottom: 20px;
+
+}
+
+button{
+    width: 13%;
+    margin-left: 5px;
+    background-color: orangered;
+    color: #ffffff;
+    border-radius: 5px;
+    border: none;
+}
+
+input, button{
+    height: 50px;
+}

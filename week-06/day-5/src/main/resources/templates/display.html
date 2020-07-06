@@ -6,20 +6,28 @@
     <link rel="stylesheet" href="/style.css" />
 </head>
 <body>
-<header>
-    <a th:href="'/webshop'">My Shop</a>
-</header>
+    <header>
+        <a th:href="'/webshop'">My Shop</a>
+    </header>
 
+    <form action="/search" method="post">
+        <label for="searchBar">Search for:</label>
+        <div class="searchField">
+            <input name="searchWord" id="searchBar" placeholder="... something like nike">
+            <button type="submit">Search</button>
+        </div>
 
-<nav>
-    <a th:href="'/only-available'">ONLY AVAILABLE</a>
-    <a th:href="'/cheapest-first'">CHEAPEST FIRST</a>
-    <a th:href="'/contains-nike'">CONTAINS NIKE</a>
-    <a th:href="'/average-stock'">AVERAGE STOCK</a>
-    <a th:href="'/most-expensive'">MOST EXPENSIVE AVAILABLE</a>
-</nav>
+    </form>
 
-<p th:text="${displayText} + ${displayData}" class="average"></p>
+    <nav>
+        <a th:href="'/only-available'">ONLY AVAILABLE</a>
+        <a th:href="'/cheapest-first'">CHEAPEST FIRST</a>
+        <a th:href="'/contains-nike'">CONTAINS NIKE</a>
+        <a th:href="'/average-stock'">AVERAGE STOCK</a>
+        <a th:href="'/most-expensive'">MOST EXPENSIVE AVAILABLE</a>
+    </nav>
+
+    <p th:text="${displayText} + ${displayData}" class="average"></p>
 
 
 </body>

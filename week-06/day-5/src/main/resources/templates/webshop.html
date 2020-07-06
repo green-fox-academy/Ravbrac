@@ -19,6 +19,15 @@
         <a th:href="'/most-expensive'">MOST EXPENSIVE AVAILABLE</a>
     </nav>
 
+    <form action="/search" method="post">
+        <label for="searchBar">Search for:</label>
+        <div class="searchField">
+            <input name="searchWord" id="searchBar" placeholder="... something like nike">
+            <button type="submit">Search</button>
+        </div>
+
+    </form>
+
     <table>
         <thead>
             <td>Name</td>

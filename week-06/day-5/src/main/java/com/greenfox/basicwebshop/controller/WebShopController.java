@@ -11,6 +11,8 @@ import java.util.stream.Collectors;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
@@ -21,9 +23,11 @@ public class WebShopController {
       new ShopItem("Coca Cola", "0.5l standard coke", 25.0, 0),
       new ShopItem("Wokin", "Chicken with fried rice and WOKIN sauce", 119.0, 100),
       new ShopItem("T-shirt", "Blue with a corgi on a bike", 300.0, 1)
-      ));
+  ));
 
   String[] displayText = {"Average stock: ", "Most expensive item available: "};
+
+  ArrayList<ShopItem> searchedItems= new ArrayList<>();
 
 //  @GetMapping("/webshop")
 //  @ResponseBody
@@ -33,7 +37,13 @@ public class WebShopController {
 
   @GetMapping("/webshop")
   public String webshop(Model model) {
-    model.addAttribute("items", items);
+    if (searchedItems.isEmpty()) {
+      model.addAttribute("items", items);
+    } else {
+      model.addAttribute("items", searchedItems);
+      searchedItems = new ArrayList<>();
+    }
+
 
     return "webshop";
   }
@@ -44,7 +54,6 @@ public class WebShopController {
     ArrayList<ShopItem> itemsAvailable = items.stream()
         .filter(i -> i.getQuantityOfStock() > 0)
         .collect(Collectors.toCollection(ArrayList::new));
-
 
 
     model.addAttribute("items", itemsAvailable);
@@ -58,7 +67,6 @@ public class WebShopController {
         .collect(Collectors.toCollection(ArrayList::new));
 
 
-
     model.addAttribute("items", itemPriceDescending);
     return "webshop";
   }
@@ -67,9 +75,9 @@ public class WebShopController {
   public String containsNike(Model model) {
 
     ArrayList<ShopItem> nikeItems = items.stream()
-        .filter(i -> i.getName().toLowerCase().contains("nike") || i.getDescription().toLowerCase().contains("nike"))
+        .filter(i -> i.getName().toLowerCase().contains("nike") ||
+            i.getDescription().toLowerCase().contains("nike"))
         .collect(Collectors.toCollection(ArrayList::new));
-
 
 
     model.addAttribute("items", nikeItems);
@@ -79,7 +87,7 @@ public class WebShopController {
   @GetMapping("/average-stock")
   public String averageStock(Model model) {
 
-    OptionalDouble optionalAverage =items.stream()
+    OptionalDouble optionalAverage = items.stream()
         .mapToInt(ShopItem::getQuantityOfStock)
         .average();
     if (optionalAverage.isPresent()) {
@@ -92,11 +100,10 @@ public class WebShopController {
     }
 
 
-
   }
 
   @GetMapping("/most-expensive")
-  public String mostExpensive( Model model) {
+  public String mostExpensive(Model model) {
     Optional<ShopItem> optionalItem = items.stream()
         .max(Comparator.comparing(ShopItem::getPrice));
 
@@ -108,5 +115,15 @@ public class WebShopController {
     } else {
       return "redirect:/webshop";
     }
+  }
+
+  @PostMapping("/search")
+  public String search(@RequestParam String searchWord) {
+    searchedItems = items.stream()
+        .filter(i -> i.getName().toLowerCase().contains(searchWord.toLowerCase()) ||
+            i.getDescription().toLowerCase().contains(searchWord.toLowerCase()))
+        .collect(Collectors.toCollection(ArrayList::new));
+
+    return "redirect:/webshop";
   }
 }
