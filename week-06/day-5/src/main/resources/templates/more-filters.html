@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Basic Webshop</title>
+    <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+<header>
+    <a th:href="'/webshop'">My Shop</a>
+    <a th:href="'/more-filters'" class="more">More >></a>
+</header>
+
+
+<nav>
+    <a th:href="'/only-available'">CLOTHES AND SHOES</a>
+    <a th:href="'/cheapest-first'">ELECTRONICS</a>
+    <a th:href="'/contains-nike'">BEVERAGES AND SNACKS</a>
+    <a th:href="'/average-stock'">EURO</a>
+    <a th:href="'/most-expensive'">ORIGINAL CURRENCY</a>
+</nav>
+
+<form action="/search" method="post">
+    <label for="searchBar">Search for:</label>
+    <div class="searchField">
+        <input name="searchWord" id="searchBar" placeholder="... something like nike">
+        <button type="submit">Search</button>
+
+    </div>
+
+</form>
+
+<table>
+    <thead>
+    <td>Name</td>
+    <td class="descriptionHead">Description</td>
+    <td>Price</td>
+    <td>Quantity of stock</td>
+    </thead>
+    <tr th:each="item : ${items}">
+        <td th:text="${item.name}" class="nameCol"></td>
+        <td th:text="${item.description }" class="descriptionCol"></td>
+        <td th:text="${item.price} + ' Kč'" class="amount"></td>
+        <td th:text="${item.quantityOfStock}" class="amount"></td>
+    </tr>
+</table>
+</body>
+</html>

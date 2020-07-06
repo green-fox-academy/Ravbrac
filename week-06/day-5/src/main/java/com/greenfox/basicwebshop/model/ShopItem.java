@@ -2,12 +2,14 @@ package com.greenfox.basicwebshop.model;
 
 public class ShopItem {
   String name;
+  String type;
   String description;
   double price;
   int quantityOfStock;
 
-  public ShopItem(String name, String description, double price, int quantityOfStock) {
+  public ShopItem(String name, ItemType itemType, String description, double price, int quantityOfStock) {
     this.name = name;
+    this.type = typeToString(itemType);
     this.description = description;
     this.price = price;
     this.quantityOfStock = quantityOfStock;
@@ -43,5 +45,15 @@ public class ShopItem {
 
   public void setQuantityOfStock(int quantityOfStock) {
     this.quantityOfStock = quantityOfStock;
+  }
+
+  public String typeToString(ItemType itemType){
+    if (itemType.equals(ItemType.CLOTHES)) {
+      return "Clothes and Shoes";
+    }else if (itemType.equals(ItemType.ELECTRONICS)) {
+      return "Electronics";
+    }else{
+      return "Beverages and Snacks";
+    }
   }
 }

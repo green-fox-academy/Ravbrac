@@ -7,10 +7,16 @@ header{
     border-bottom: 1.5px solid skyblue;
     margin-bottom: 30px;
     width: auto;
+    position: relative;
 }
 
 a{
     text-decoration: none;
+}
+
+.more{
+    position: absolute;
+    right: 0;
 }
 
 header > a{
