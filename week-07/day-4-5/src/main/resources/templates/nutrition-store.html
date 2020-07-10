@@ -14,16 +14,16 @@
 </ul>
 
 
-<form th:action="'/?name=' + ${name}" method="post">
+<form th:action="'/nutritionStore?name=' + ${name}" method="post">
     <label for="food">Food</label>
     <select>
-        <option th:each="food : ${foods}" name="food" id="food" th:value="${food.toLowerCase()}" th:text="${food}"
+        <option th:each="food : ${foods}" name="food" id="food" th:value="${food}" th:text="${food}"
                 th:selected="${food.equals(currentFood)}"></option>
     </select>
 
     <label for="drink">Drink</label>
     <select>
-        <option th:each="drink: ${drinks}" name="drink" id="drink" th:value="${drink.toLowerCase()}" th:text="${drink}"
+        <option th:each="drink: ${drinks}" name="drink" id="drink" th:value="${drink}" th:text="${drink}"
                 th:selected="${drink.equals(currentDrink)}"></option>
     </select>
 

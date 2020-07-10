@@ -74,18 +74,5 @@ public class MainController {
         return "redirect:/?name=" + name;
     }
 
-    @GetMapping("/nutritionStore")
-    public String nutritionStore(@RequestParam(required = false) String name, Model model) {
-        model.addAttribute("name", name);
-        model.addAttribute("foods", nutritionService.getFoods());
-        model.addAttribute("drinks", nutritionService.getDrinks());
 
-        if (name == null)  {
-            return "redirect:/login";
-        }else if(foxService.findFox(name).isPresent()) {
-            model.addAttribute("currentFood", foxService.findFox(name).get().getFood());
-            model.addAttribute("currentDrink", foxService.findFox(name).get().getDrink());
-        }
-        return "nutrition-store";
-    }
 }
