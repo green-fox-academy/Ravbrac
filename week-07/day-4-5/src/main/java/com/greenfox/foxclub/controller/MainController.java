@@ -1,6 +1,8 @@
 package com.greenfox.foxclub.controller;
 
 import com.greenfox.foxclub.model.Fox;
+import com.greenfox.foxclub.service.FoxService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,7 +15,9 @@ import java.util.Optional;
 
 @Controller
 public class MainController {
-    List<Fox> foxes = new ArrayList<>();
+    @Autowired
+    FoxService foxService;
+
 
 //    @GetMapping("/")
 //    public String sendToLogin() {
@@ -28,11 +32,15 @@ public class MainController {
 //    }
 
     @GetMapping("/")
-    public String loggedInIndex(@RequestParam(defaultValue = "empty") String name, Model model) {
-        if (name.equals("empty") || !findFox(name).isPresent()) {
-            return "login";
+    public String loggedInIndex(@RequestParam(required = false) String name, Model model) {
+        if (name == null)  {
+            return "redirect:/login";
+        }else if (!foxService.findFox(name).isPresent()) {
+            foxService.addFox(name);
+            return "redirect:/login?isNew=true";
         }else {
-            Fox fox = findFox(name).get();
+
+            Fox fox = foxService.findFox(name).get();
             model.addAttribute("name", fox.getName());
             model.addAttribute("food", fox.getFood());
             model.addAttribute("drink", fox.getDrink());
@@ -48,21 +56,18 @@ public class MainController {
     }
 
     @GetMapping("/login")
-    public String getLogin() {
+    public String getLogin(@RequestParam(required = false) boolean isNew, Model model) {
+        if (isNew) {
+            model.addAttribute("newAlert", "You have provided a name that has not been used before, add it as a new one!");
+        }else {
+            model.addAttribute("newAlert", "");
+        }
+
         return "login";
     }
 
     @PostMapping("/login")
     public String postLogin(@RequestParam String name) {
-        foxes.add(new Fox(name));
-        String s = "?name=" + name;
-
-        return "redirect:/" + s;
-    }
-
-    public  Optional<Fox> findFox(String name) {
-        return foxes.stream()
-                .filter(f -> f.getName().equals(name))
-                .findFirst();
+        return "redirect:/?name=" + name;
     }
 }
