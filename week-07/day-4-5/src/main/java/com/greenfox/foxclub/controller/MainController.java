@@ -2,6 +2,7 @@ package com.greenfox.foxclub.controller;
 
 import com.greenfox.foxclub.model.Fox;
 import com.greenfox.foxclub.service.FoxService;
+import com.greenfox.foxclub.service.NutritionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,6 +18,8 @@ import java.util.Optional;
 public class MainController {
     @Autowired
     FoxService foxService;
+    @Autowired
+    NutritionService nutritionService;
 
 
 //    @GetMapping("/")
@@ -32,7 +35,7 @@ public class MainController {
 //    }
 
     @GetMapping("/")
-    public String loggedInIndex(@RequestParam(required = false) String name, Model model) {
+    public String index(@RequestParam(required = false) String name, Model model) {
         if (name == null)  {
             return "redirect:/login";
         }else if (!foxService.findFox(name).isPresent()) {
@@ -69,5 +72,20 @@ public class MainController {
     @PostMapping("/login")
     public String postLogin(@RequestParam String name) {
         return "redirect:/?name=" + name;
+    }
+
+    @GetMapping("/nutritionStore")
+    public String nutritionStore(@RequestParam(required = false) String name, Model model) {
+        model.addAttribute("name", name);
+        model.addAttribute("foods", nutritionService.getFoods());
+        model.addAttribute("drinks", nutritionService.getDrinks());
+
+        if (name == null)  {
+            return "redirect:/login";
+        }else if(foxService.findFox(name).isPresent()) {
+            model.addAttribute("currentFood", foxService.findFox(name).get().getFood());
+            model.addAttribute("currentDrink", foxService.findFox(name).get().getDrink());
+        }
+        return "nutrition-store";
     }
 }

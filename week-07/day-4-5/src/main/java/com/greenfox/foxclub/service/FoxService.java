@@ -10,7 +10,7 @@ import java.util.Optional;
 
 @Service
 public class FoxService {
-    List<Fox> foxes;
+    private List<Fox> foxes;
 
     public FoxService() {
         this.foxes = new ArrayList<>();

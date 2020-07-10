@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
+    <link rel="stylesheet" href="/style.css">
 </head>
 <body>
 <header>
     <h1>Welcome to Programmer Fox Club!</h1>
 
-    <p th:text="${newAlert}"></p>
+    <p class="alert" th:text="${newAlert}"></p>
 
     <p>Please provide a name, so you can associate it to your pet!</p>
     <form action="/login" method="post">
