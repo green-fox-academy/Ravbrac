@@ -3,6 +3,7 @@ package com.greenfox.foxclub.controller;
 import com.greenfox.foxclub.model.Fox;
 import com.greenfox.foxclub.service.FoxService;
 import com.greenfox.foxclub.service.NutritionService;
+import com.greenfox.foxclub.service.TrickService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,6 +21,8 @@ public class MainController {
     FoxService foxService;
     @Autowired
     NutritionService nutritionService;
+    @Autowired
+    TrickService trickService;
 
 
 //    @GetMapping("/")
@@ -73,6 +76,8 @@ public class MainController {
     public String postLogin(@RequestParam String name) {
         return "redirect:/?name=" + name;
     }
+
+
 
 
 }

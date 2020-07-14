@@ -48,4 +48,8 @@ public class Fox {
     public void setDrink(String drink) {
         this.drink = drink;
     }
+
+    public void addTrick(String trick) {
+        tricks.add(trick);
+    }
 }
