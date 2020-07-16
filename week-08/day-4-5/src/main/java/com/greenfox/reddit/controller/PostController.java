@@ -21,12 +21,16 @@ public class PostController {
     public String index(@RequestParam(required = false) String title, @RequestParam(required = false) String vote, Model model) {
         model.addAttribute("posts", postService.getPosts());
 
-        if (vote.equals("up")) {
-            postService.increaseVoteAtTitle(title);
-        }else if (vote.equals("down")) {
-            postService.decreaseVoteAtTitle(title);
+        if (title != null) {
+            if (vote.equals("up")) {
+                postService.increaseVoteAtTitle(title);
+                return "redirect:/";
+            }else if (vote.equals("down")) {
+                postService.decreaseVoteAtTitle(title);
+                return "redirect:/";
+            }
         }
-
+        
         return "index";
     }
 

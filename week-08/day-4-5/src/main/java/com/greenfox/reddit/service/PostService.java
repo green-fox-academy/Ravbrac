@@ -26,14 +26,13 @@ public class PostService {
     }
 
     public void increaseVoteAtTitle(String title) {
-        Post post = getPostByTitle(title);
+        getPostByTitle(title).setVotes(getPostByTitle(title).getVotes() + 1);
+        postRepository.save(getPostByTitle(title));
 
-        post.setVotes(post.getVotes() + 1);
     }
 
     public void decreaseVoteAtTitle(String title) {
-        Post post = getPostByTitle(title);
-
-        post.setVotes(post.getVotes() - 1);
+        getPostByTitle(title).setVotes(getPostByTitle(title).getVotes() - 1);
+        postRepository.save(getPostByTitle(title));
     }
 }
