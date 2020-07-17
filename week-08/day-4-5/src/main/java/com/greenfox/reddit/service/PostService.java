@@ -5,7 +5,10 @@ import com.greenfox.reddit.repository.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class PostService {
@@ -22,7 +25,9 @@ public class PostService {
     }
 
     public Post getPostByTitle(String title) {
-        return postRepository.findByTitleEquals(title);
+        Optional<Post> optionalPost = postRepository.findByTitleEquals(title);
+
+        return optionalPost.orElse(null);
     }
 
     public void increaseVoteAtTitle(String title) {
@@ -38,5 +43,11 @@ public class PostService {
 
     public void addPost(String title, String postUrl) {
         this.postRepository.save(new Post(title, postUrl));
+    }
+
+    public List<Post> sortedPostsByVotes() {
+        return getPosts().stream()
+                .sorted(Comparator.comparing(Post::getVotes).reversed())
+                .collect(Collectors.toList());
     }
 }

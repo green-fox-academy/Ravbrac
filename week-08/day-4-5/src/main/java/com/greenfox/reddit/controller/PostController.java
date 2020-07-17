@@ -20,7 +20,7 @@ public class PostController {
 
     @GetMapping("/")
     public String index(@RequestParam(required = false) String title, @RequestParam(required = false) String vote, Model model) {
-        model.addAttribute("posts", postService.getPosts());
+        model.addAttribute("posts", postService.sortedPostsByVotes());
 
         if (title != null) {
             if (vote.equals("up")) {
