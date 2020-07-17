@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
@@ -37,5 +38,16 @@ public class PostController {
     @GetMapping("/submit")
     public String submitGet() {
         return "submit";
+    }
+
+    @PostMapping("/submit")
+    public String submitPost(@RequestParam(required = false) String title, @RequestParam(required = false) String postUrl) {
+        if (!(title == null && !(postUrl == null))){
+            postService.addPost(title, postUrl);
+            return "redirect:/";
+        }else {
+            return "redirect:/submit";
+        }
+
     }
 }

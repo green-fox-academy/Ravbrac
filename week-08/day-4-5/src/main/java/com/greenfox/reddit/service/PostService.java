@@ -35,4 +35,8 @@ public class PostService {
         getPostByTitle(title).setVotes(getPostByTitle(title).getVotes() - 1);
         postRepository.save(getPostByTitle(title));
     }
+
+    public void addPost(String title, String postUrl) {
+        this.postRepository.save(new Post(title, postUrl));
+    }
 }

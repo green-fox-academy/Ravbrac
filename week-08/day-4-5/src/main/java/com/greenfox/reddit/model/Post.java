@@ -19,4 +19,10 @@ public class Post {
     private String title;
     private String postUrl;
     private Integer votes;
+
+    public Post(String title, String postUrl) {
+        this.title = title;
+        this.postUrl = postUrl;
+        this.votes = 0;
+    }
 }
