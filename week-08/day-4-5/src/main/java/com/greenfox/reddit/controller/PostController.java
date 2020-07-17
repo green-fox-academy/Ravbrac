@@ -42,11 +42,11 @@ public class PostController {
 
     @PostMapping("/submit")
     public String submitPost(@RequestParam(required = false) String title, @RequestParam(required = false) String postUrl) {
-        if (!(title == null && !(postUrl == null))){
+        if (!title.equals("") && !postUrl.equals("")){
             postService.addPost(title, postUrl);
             return "redirect:/";
         }else {
-            return "redirect:/submit";
+            return "submit";
         }
 
     }
