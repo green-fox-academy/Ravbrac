@@ -1,15 +1,9 @@
 package com.greenfox.backendapi.controller;
 
-import com.greenfox.backendapi.model.dto.AppendedWord;
-import com.greenfox.backendapi.model.dto.ErrorMessage;
-import com.greenfox.backendapi.model.dto.InputNumber;
-import com.greenfox.backendapi.model.dto.WelcomeMessage;
+import com.greenfox.backendapi.model.dto.*;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class MainController {
@@ -49,5 +43,14 @@ public class MainController {
             return ResponseEntity.status(404).build();
         }
         return ResponseEntity.status(200).body(new AppendedWord(appendable));
+    }
+
+    @PostMapping("/dountil/{action}")
+    public ResponseEntity<?> doUntil(@PathVariable String action, @RequestBody UntilNumber until) {
+        if (until == null) {
+            return ResponseEntity.status(400).body(new ErrorMessage("Please provide a number!"));
+        }
+        UntilNumber untilNumber = new UntilNumber(action, until.getUntil());
+        return ResponseEntity.status(200).body(untilNumber);
     }
 }
