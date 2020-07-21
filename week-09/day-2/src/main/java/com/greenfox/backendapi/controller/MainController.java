@@ -46,7 +46,7 @@ public class MainController {
     }
 
     @PostMapping("/dountil/{action}")
-    public ResponseEntity<?> doUntil(@PathVariable String action, @RequestBody UntilNumber until) {
+    public ResponseEntity<?> doUntil(@PathVariable String action, @RequestBody(required = false) UntilNumber until) {
         if (until == null) {
             return ResponseEntity.status(400).body(new ErrorMessage("Please provide a number!"));
         }
