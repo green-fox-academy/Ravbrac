@@ -1,11 +1,13 @@
 package com.greenfox.backendapi.controller;
 
+import com.greenfox.backendapi.model.dto.AppendedWord;
 import com.greenfox.backendapi.model.dto.ErrorMessage;
 import com.greenfox.backendapi.model.dto.InputNumber;
 import com.greenfox.backendapi.model.dto.WelcomeMessage;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -39,5 +41,13 @@ public class MainController {
         }
 
         return ResponseEntity.status(200).body(new WelcomeMessage(name, title));
+    }
+
+    @GetMapping("/appenda/{appendable}")
+    public ResponseEntity<?> appendA(@PathVariable(required = false) String appendable) {
+        if (appendable == null) {
+            return ResponseEntity.status(404).build();
+        }
+        return ResponseEntity.status(200).body(new AppendedWord(appendable));
     }
 }
